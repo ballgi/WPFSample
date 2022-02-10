@@ -52,6 +52,17 @@ namespace WpfApp1
             //Application.Current.Shutdown();
            
         }
-              
+
+        private void btn2_Click(object sender, RoutedEventArgs e)
+        {
+            /*該屬性默認值為“Default" ==> 根據您綁定的屬性來更新，
+              除了**Text屬性***之外的所有屬性在屬性更改時立即更新（PropertyChanged），
+            而當目標元素丟失焦點時（LostFocus），Text屬性才會更新*/
+
+            #region Explicit 明確updateSource才會更新
+            BindingExpression binding = WWeidth.GetBindingExpression(TextBox.TextProperty);
+            binding.UpdateSource(); 
+            #endregion
+        }
     }
 }

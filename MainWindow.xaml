@@ -12,12 +12,13 @@
         <Label Content="W:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="30"/>
         <Label Content="H:" HorizontalAlignment="Left" Margin="216,10,0,0" VerticalAlignment="Top" FontSize="30"/>
         <!--#region BINDING windows屬性 在後端datacontext -->
-        <TextBox HorizontalAlignment="Left" Margin="62,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="30" Text="{Binding Width, Mode=TwoWay}"/>
+        <TextBox x:Name="WWeidth" HorizontalAlignment="Left" Margin="62,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="30" Text="{Binding Width, Mode=TwoWay, UpdateSourceTrigger=Explicit}"/>
         <!--BINDING windows屬性-->
         <TextBox x:Name="Wheight" HorizontalAlignment="Left" Margin="280,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="30"/>
         <!--#endregion-->
 
         <!--TextTrimming 設定字元省略-->
-        <TextBlock HorizontalAlignment="Left" Margin="34,94,0,0" Text="TextBlock TextBlock TextBlock TextBlock TextBlock TextBlock TextBlock TextBlock TextBlock TextBlock " TextTrimming="CharacterEllipsis"  VerticalAlignment="Top" FontSize="30" Width="469" Height="62" />
+        <TextBlock HorizontalAlignment="Left" Margin="34,126,0,0" Text="TextBlock TextBlock TextBlock TextBlock TextBlock TextBlock TextBlock TextBlock TextBlock TextBlock " TextTrimming="CharacterEllipsis"  VerticalAlignment="Top" FontSize="30" Width="469" Height="62" />
+        <Button x:Name="btn2" Content="改W" HorizontalAlignment="Left" Margin="122,260,0,0" VerticalAlignment="Top" Height="52" Width="114" FontSize="30" FontWeight="Bold" Click="btn2_Click"/>
     </Grid>
 </Window>
