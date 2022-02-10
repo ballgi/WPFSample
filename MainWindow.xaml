@@ -13,7 +13,7 @@
         <Label Content="H:" HorizontalAlignment="Left" Margin="216,10,0,0" VerticalAlignment="Top" FontSize="30"/>
         <!--#region BINDING windows屬性 在後端datacontext -->
         <TextBox HorizontalAlignment="Left" Margin="62,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="30" Text="{Binding Width, Mode=TwoWay}"/><!--BINDING windows屬性-->
-        <TextBox HorizontalAlignment="Left" Margin="280,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="30" Text="{Binding Height,Mode=TwoWay, UpdateSourceTrigger=Default}"/>
+        <TextBox x:Name="Wheight" HorizontalAlignment="Left" Margin="280,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="30"/>
         <!--#endregion-->
     </Grid>
 </Window>

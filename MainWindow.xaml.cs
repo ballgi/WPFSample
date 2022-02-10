@@ -25,6 +25,17 @@ namespace WpfApp1
             InitializeComponent();
             //DataContext binding
             this.DataContext = this;
+
+            //後端binding 屬性
+            #region 建立binding物件
+            //path property
+            Binding height = new Binding("Height");
+            //source 
+            height.Source = window;
+            #endregion
+            
+            Wheight.SetBinding(TextBox.TextProperty, height);
+
             //後端 binding 事件
             btn1.MouseMove += Btn1_MouseMove;
         }
