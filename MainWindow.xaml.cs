@@ -23,6 +23,8 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
+            //DataContext binding
+            this.DataContext = this;
             //後端 binding 事件
             btn1.MouseMove += Btn1_MouseMove;
         }
