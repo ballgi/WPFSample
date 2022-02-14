@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,8 @@ namespace 範例WpfApp1
     public partial class MainWindow : Window
     {
         //private List<User> users = new List<User>();
+
+        //對資料源 response
         private ObservableCollection<User> users = new ObservableCollection<User>();
 
         public MainWindow()
@@ -51,9 +54,36 @@ namespace 範例WpfApp1
                 users.Remove(lbUsers.SelectedItem as User);
         }
 
-        public class User
+        //public class User
+        //{
+        //    public string Name { get; set; }
+        //}
+
+        //反應 data objecct的變化[INotifyPropertyChanged]
+        public class User : INotifyPropertyChanged
         {
-            public string Name { get; set; }
+            private string name;
+            public string Name
+            {
+                get { return this.name; }
+                set
+                {
+                    if (this.name != value)
+                    {
+                        this.name = value;
+                        this.NotifyPropertyChanged("Name");//Name應是User set屬性 
+                    }
+                }
+            }
+            
+            #region NotifyPropertyChanged
+            public event PropertyChangedEventHandler PropertyChanged;
+            public void NotifyPropertyChanged(string propName)
+            {
+                if (this.PropertyChanged != null)
+                    this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
+            } 
+            #endregion
         }
     }
 }
