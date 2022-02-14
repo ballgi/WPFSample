@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -71,17 +72,20 @@ namespace 範例WpfApp1
                     if (this.name != value)
                     {
                         this.name = value;
-                        this.NotifyPropertyChanged("Name");//Name應是User set屬性 
+                        this.NotifyPropertyChanged();
                     }
                 }
             }
             
             #region NotifyPropertyChanged
             public event PropertyChangedEventHandler PropertyChanged;
-            public void NotifyPropertyChanged(string propName)
+            //public void NotifyPropertyChanged(string propName)
+            //CallerMemberName取得 呼叫端(方法的)方法或屬性名稱
+            public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
             {
-                if (this.PropertyChanged != null)
-                    this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
+                //if (this.PropertyChanged != null)
+                //    this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             } 
             #endregion
         }
